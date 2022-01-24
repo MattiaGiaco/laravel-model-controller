@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Movie;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     public function index() {
-        return view('home');
+
+        $movies = Movie::all();
+        //dump($movies);
+
+        return view('home', compact('movies'));
     }
 
     public function about() {
